@@ -4,7 +4,7 @@ import asyncio
 import logging
 from datetime import datetime
 import traceback
-
+import os
 from config import Config
 from historical_analyzer import HistoricalAnalyzer
 from context_fetcher import ContextFetcher
@@ -190,11 +190,9 @@ def test_explanation():
 
 
 if __name__ == '__main__':
-    logger.info("Starting Portfolio Explainer API")
-    logger.info(f"Configuration: {Config.FLASK_ENV} mode")
+    port = int(os.environ.get('PORT', 5001))
+    debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
 
-    app.run(
-        host='0.0.0.0',
-        port=Config.PORT,
-        debug=Config.FLASK_DEBUG
-    )
+    logger.info(f"Starting Portfolio Explainer API on port {port}")
+    app.run(host='0.0.0.0', port=port, debug=debug)
+

@@ -612,3 +612,74 @@
 2025-09-09 21:59:55,552 - llm_explainer - INFO - LLM response received: 7934 characters
 2025-09-09 21:59:55,553 - __main__ - INFO - Successfully generated explanation for job_id: 2835d651-44ba-4a6f-b048-5d94500d5974
 2025-09-09 21:59:55,554 - werkzeug - INFO - 127.0.0.1 - - [09/Sep/2025 21:59:55] "POST /generate-portfolio-explanation HTTP/1.1" 200 -
+2025-09-09 22:03:12,117 - historical_analyzer - INFO - Loaded historical data: (2541, 4)
+2025-09-09 22:03:12,117 - historical_analyzer - INFO - Columns: ['Equities', 'Gold', 'REITs', 'Bitcoin']
+2025-09-09 22:03:12,117 - historical_analyzer - INFO - Date range: 2015-01-02 00:00:00 to 2025-09-04 00:00:00
+2025-09-09 22:03:12,383 - __main__ - INFO - Starting Portfolio Explainer API
+2025-09-09 22:03:12,383 - __main__ - INFO - Configuration: development mode
+2025-09-09 22:03:12,404 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.13.42.1:5001
+2025-09-09 22:03:12,404 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-09 22:03:12,405 - werkzeug - INFO -  * Restarting with stat
+2025-09-09 22:03:13,330 - historical_analyzer - INFO - Loaded historical data: (2541, 4)
+2025-09-09 22:03:13,330 - historical_analyzer - INFO - Columns: ['Equities', 'Gold', 'REITs', 'Bitcoin']
+2025-09-09 22:03:13,330 - historical_analyzer - INFO - Date range: 2015-01-02 00:00:00 to 2025-09-04 00:00:00
+2025-09-09 22:03:13,595 - __main__ - INFO - Starting Portfolio Explainer API
+2025-09-09 22:03:13,595 - __main__ - INFO - Configuration: development mode
+2025-09-09 22:03:13,607 - werkzeug - WARNING -  * Debugger is active!
+2025-09-09 22:03:13,611 - werkzeug - INFO -  * Debugger PIN: 690-172-269
+2025-09-09 22:03:15,760 - __main__ - INFO - Processing explanation request for job_id: 2835d651-44ba-4a6f-b048-5d94500d5974
+2025-09-09 22:03:15,760 - __main__ - INFO - Risk profile: Balanced
+2025-09-09 22:03:15,760 - __main__ - INFO - Step 1: Calculating historical metrics
+2025-09-09 22:03:15,762 - historical_analyzer - INFO - Calculated metrics for Equities
+2025-09-09 22:03:15,765 - historical_analyzer - INFO - Calculated metrics for Gold
+2025-09-09 22:03:15,766 - historical_analyzer - INFO - Calculated metrics for REITs
+2025-09-09 22:03:15,767 - historical_analyzer - INFO - Calculated metrics for Bitcoin
+2025-09-09 22:03:15,768 - __main__ - INFO - Step 2: Fetching context files
+2025-09-09 22:03:15,768 - context_fetcher - INFO - Fetching context files for job_id: 2835d651-44ba-4a6f-b048-5d94500d5974
+2025-09-09 22:03:16,078 - context_fetcher - INFO - Fetching NIFTY50 context from: https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/NIFTY50
+2025-09-09 22:03:16,522 - httpx - INFO - HTTP Request: GET https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/NIFTY50 "HTTP/1.1 200 OK"
+2025-09-09 22:03:16,524 - context_fetcher - INFO - Using context_data wrapper for NIFTY50
+2025-09-09 22:03:16,524 - context_fetcher - INFO - NIFTY50 component_breakdown keys: ['fii_dii_flows', 'technical_analysis', 'market_sentiment_vix', 'rbi_interest_rates', 'global_factors']
+2025-09-09 22:03:16,524 - context_fetcher - INFO - fii_dii_flows: sentiment=-0.070, confidence=0.700
+2025-09-09 22:03:16,524 - context_fetcher - INFO - technical_analysis: sentiment=0.078, confidence=0.700
+2025-09-09 22:03:16,524 - context_fetcher - INFO - market_sentiment_vix: sentiment=-0.158, confidence=0.662
+2025-09-09 22:03:16,524 - context_fetcher - INFO - rbi_interest_rates: sentiment=0.287, confidence=0.762
+2025-09-09 22:03:16,524 - context_fetcher - INFO - global_factors: sentiment=-0.031, confidence=0.800
+2025-09-09 22:03:16,525 - context_fetcher - INFO - Successfully fetched NIFTY50 context
+2025-09-09 22:03:16,525 - context_fetcher - INFO - Fetching GOLD context from: https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/GOLD
+2025-09-09 22:03:16,619 - httpx - INFO - HTTP Request: GET https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/GOLD "HTTP/1.1 200 OK"
+2025-09-09 22:03:16,620 - context_fetcher - INFO - Using context_data wrapper for GOLD
+2025-09-09 22:03:16,620 - context_fetcher - INFO - GOLD component_breakdown keys: ['technical_analysis', 'real_interest_rates', 'central_bank_sentiment', 'professional_positioning', 'currency_debasement']
+2025-09-09 22:03:16,620 - context_fetcher - INFO - technical_analysis: sentiment=1.000, confidence=0.699
+2025-09-09 22:03:16,620 - context_fetcher - INFO - real_interest_rates: sentiment=0.457, confidence=0.770
+2025-09-09 22:03:16,620 - context_fetcher - INFO - real_interest_rates: sentiment=0.457, confidence=0.770
+2025-09-09 22:03:16,620 - context_fetcher - INFO - currency_debasement: sentiment=0.056, confidence=0.817
+2025-09-09 22:03:16,620 - context_fetcher - INFO - central_bank_sentiment: sentiment=0.241, confidence=0.665
+2025-09-09 22:03:16,620 - context_fetcher - INFO - Successfully fetched GOLD context
+2025-09-09 22:03:16,620 - context_fetcher - INFO - Fetching BITCOIN context from: https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/BITCOIN
+2025-09-09 22:03:16,714 - httpx - INFO - HTTP Request: GET https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/BITCOIN "HTTP/1.1 200 OK"
+2025-09-09 22:03:16,716 - context_fetcher - INFO - Using context_data wrapper for BITCOIN
+2025-09-09 22:03:16,716 - context_fetcher - INFO - BITCOIN component_breakdown keys: ['micro_momentum', 'funding_basis', 'liquidity', 'orderflow']
+2025-09-09 22:03:16,716 - context_fetcher - INFO - micro_momentum: sentiment=-0.244, confidence=0.717
+2025-09-09 22:03:16,716 - context_fetcher - INFO - funding_basis: sentiment=-0.098, confidence=0.452
+2025-09-09 22:03:16,716 - context_fetcher - INFO - liquidity: sentiment=-0.004, confidence=0.702
+2025-09-09 22:03:16,716 - context_fetcher - INFO - orderflow: sentiment=-0.675, confidence=0.767
+2025-09-09 22:03:16,716 - context_fetcher - INFO - Successfully fetched BITCOIN context
+2025-09-09 22:03:16,716 - context_fetcher - INFO - Fetching REIT context from: https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/REIT
+2025-09-09 22:03:16,814 - httpx - INFO - HTTP Request: GET https://assetmanagement-production-f542.up.railway.app/jobs/2835d651-44ba-4a6f-b048-5d94500d5974/context/REIT "HTTP/1.1 200 OK"
+2025-09-09 22:03:16,816 - context_fetcher - INFO - Using context_data wrapper for REIT
+2025-09-09 22:03:16,816 - context_fetcher - INFO - REIT component_breakdown keys: ['technical_momentum', 'yield_spread', 'accumulation_flow', 'liquidity_risk']
+2025-09-09 22:03:16,816 - context_fetcher - INFO - technical_momentum: sentiment=-0.407, confidence=0.800
+2025-09-09 22:03:16,816 - context_fetcher - INFO - yield_spread: sentiment=-1.000, confidence=0.800
+2025-09-09 22:03:16,816 - context_fetcher - INFO - accumulation_flow: sentiment=-0.451, confidence=0.800
+2025-09-09 22:03:16,816 - context_fetcher - INFO - liquidity_risk: sentiment=0.184, confidence=0.800
+2025-09-09 22:03:16,816 - context_fetcher - INFO - Successfully fetched REIT context
+2025-09-09 22:03:16,818 - __main__ - INFO - Step 3: Generating LLM explanation
+2025-09-09 22:03:16,819 - llm_explainer - INFO - Generating professional portfolio explanation with market data
+2025-09-09 22:03:56,665 - httpx - INFO - HTTP Request: POST https://api-openai-service.openai.azure.com//openai/deployments/o4-mini/chat/completions?api-version=2024-12-01-preview "HTTP/1.1 200 OK"
+2025-09-09 22:03:56,669 - llm_explainer - INFO - LLM response received: 8006 characters
+2025-09-09 22:03:56,670 - __main__ - INFO - Successfully generated explanation for job_id: 2835d651-44ba-4a6f-b048-5d94500d5974
+2025-09-09 22:03:56,672 - werkzeug - INFO - 127.0.0.1 - - [09/Sep/2025 22:03:56] "POST /generate-portfolio-explanation HTTP/1.1" 200 -
