@@ -95,7 +95,7 @@ ADVISORY GUIDELINES:
 - Avoid confidence scores, sentiment numbers
 - Make explanations sound authoritative and data-driven
 - Each asset explanation should be 5-6 sentences with supporting market data
-
+- Provide a Strict JSON Output 
 PROFESSIONAL ADVISORY OUTPUT (Strict JSON):
 {{
   "portfolio_analysis": {{
