@@ -1,0 +1,33 @@
+{
+  "asset_name": "Gold",
+  "current_price": 3694.5,
+  "last_update": "2025-09-10T16:56:39.334815",
+  "data_source": "csv_updated_daily",
+  "historical_returns": {
+    "1_month": "6.4%",
+    "3_months": "10.8%",
+    "6_months": "10.2%",
+    "1_year": "12.2%",
+    "5_years_avg": "11.2%",
+    "10_years_avg": "8.3%"
+  },
+  "risk_metrics": {
+    "volatility": "11.3%",
+    "max_drawdown": "-44.4%",
+    "sharpe_ratio": "-0.08",
+    "var_95": "-1.1%"
+  },
+  "current_stats": {
+    "current_price": 3694.5,
+    "sma_50": 3488.2339892578125,
+    "sma_200": 3382.1559936523436,
+    "avg_annual_return": "11.2%"
+  },
+  "data_quality": {
+    "data_points": 14704,
+    "data_start": "2000-08-30",
+    "data_end": "2025-09-10",
+    "years_of_data": 58.34920634920635,
+    "completeness": 1.0
+  }
+}

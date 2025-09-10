@@ -1,0 +1,31 @@
+{
+  "asset_name": "Bitcoin",
+  "current_price": 112318.3515625,
+  "last_update": "2025-09-10T15:43:09.604619",
+  "historical_returns": {
+    "1_month": "-18.7%",
+    "3_months": "3.6%",
+    "6_months": "34.0%",
+    "1_year": "19.0%",
+    "5_years_avg": "58.5%",
+    "10_years_avg": "58.5%"
+  },
+  "risk_metrics": {
+    "volatility": "37.0%",
+    "max_drawdown": "-28.1%",
+    "sharpe_ratio": "1.27",
+    "var_95": "-3.5%"
+  },
+  "current_stats": {
+    "current_price": 112318.3515625,
+    "sma_50": 114646.70875,
+    "sma_200": 101976.9087109375,
+    "avg_annual_return": "58.5%"
+  },
+  "data_quality": {
+    "data_points": 366,
+    "data_start": "2024-09-10T00:00:00+00:00",
+    "data_end": "2025-09-10T00:00:00+00:00",
+    "completeness": 0.2904761904761905
+  }
+}

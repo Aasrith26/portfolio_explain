@@ -1,0 +1,33 @@
+{
+  "asset_name": "REITs",
+  "current_price": 421.6600036621094,
+  "last_update": "2025-09-10T16:56:39.361404",
+  "data_source": "csv_updated_daily",
+  "historical_returns": {
+    "1_month": "-1.3%",
+    "3_months": "-0.2%",
+    "6_months": "1.8%",
+    "1_year": "6.8%",
+    "5_years_avg": "6.0%",
+    "10_years_avg": "3.3%"
+  },
+  "risk_metrics": {
+    "volatility": "8.6%",
+    "max_drawdown": "-21.3%",
+    "sharpe_ratio": "-0.25",
+    "var_95": "-0.7%"
+  },
+  "current_stats": {
+    "current_price": 421.6600036621094,
+    "sma_50": 422.59720092773443,
+    "sma_200": 413.35323959350586,
+    "avg_annual_return": "6.0%"
+  },
+  "data_quality": {
+    "data_points": 4404,
+    "data_start": "2020-08-07",
+    "data_end": "2025-09-10",
+    "years_of_data": 17.476190476190474,
+    "completeness": 1.0
+  }
+}

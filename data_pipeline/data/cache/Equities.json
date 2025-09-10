@@ -1,0 +1,33 @@
+{
+  "asset_name": "Equities",
+  "current_price": 24973.099609375,
+  "last_update": "2025-09-10T16:56:39.311063",
+  "data_source": "csv_updated_daily",
+  "historical_returns": {
+    "1_month": "1.6%",
+    "3_months": "1.4%",
+    "6_months": "0.0%",
+    "1_year": "0.9%",
+    "5_years_avg": "2.5%",
+    "10_years_avg": "3.9%"
+  },
+  "risk_metrics": {
+    "volatility": "12.2%",
+    "max_drawdown": "-59.9%",
+    "sharpe_ratio": "-0.16",
+    "var_95": "-1.0%"
+  },
+  "current_stats": {
+    "current_price": 24973.099609375,
+    "sma_50": 24746.0151171875,
+    "sma_200": 24952.631689453126,
+    "avg_annual_return": "2.5%"
+  },
+  "data_quality": {
+    "data_points": 12948,
+    "data_start": "2007-09-17",
+    "data_end": "2025-09-10",
+    "years_of_data": 51.38095238095238,
+    "completeness": 1.0
+  }
+}

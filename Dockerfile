@@ -6,39 +6,39 @@ ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
 
-# Set work directory
-WORKDIR /app
-
 # Install system dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         gcc \
         g++ \
         curl \
+        redis-server \
+        supervisor \
         && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
+# Set work directory
+WORKDIR /app
+
+# Copy requirements and install
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
 # Create directories
-RUN mkdir -p /app/data /app/logs
+RUN mkdir -p /app/data /app/logs /var/log/supervisor
 
 # Copy application code
 COPY . .
 
+# Copy supervisor config
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Create non-root user
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 RUN chown -R appuser:appuser /app
-USER appuser
 
-# Railway sets PORT automatically - use it
+# Expose port
 EXPOSE $PORT
 
-# Health check for Railway
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:$PORT/ || exit 1
-
-# Use Railway's PORT environment variable
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 --worker-class sync app:app"]
+# Start with supervisor (manages Redis + Flask + Background tasks)
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

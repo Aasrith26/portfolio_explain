@@ -683,3 +683,26 @@
 2025-09-09 22:03:56,669 - llm_explainer - INFO - LLM response received: 8006 characters
 2025-09-09 22:03:56,670 - __main__ - INFO - Successfully generated explanation for job_id: 2835d651-44ba-4a6f-b048-5d94500d5974
 2025-09-09 22:03:56,672 - werkzeug - INFO - 127.0.0.1 - - [09/Sep/2025 22:03:56] "POST /generate-portfolio-explanation HTTP/1.1" 200 -
+2025-09-10 16:00:01,358 - __main__ - INFO - Starting Portfolio Explainer API on port 5001
+2025-09-10 16:00:01,414 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.13.42.1:5001
+2025-09-10 16:00:01,414 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-10 16:00:01,417 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:00:03,722 - __main__ - INFO - Starting Portfolio Explainer API on port 5001
+2025-09-10 16:00:03,740 - werkzeug - WARNING -  * Debugger is active!
+2025-09-10 16:00:03,748 - werkzeug - INFO -  * Debugger PIN: 690-172-269
+2025-09-10 16:00:26,306 - __main__ - INFO - Processing explanation request for job_id: 2835d651-44ba-4a6f-b048-5d94500d5974
+2025-09-10 16:00:26,306 - __main__ - INFO - Risk profile: Balanced
+2025-09-10 16:00:26,306 - __main__ - INFO - Step 1: Calculating historical metrics
+2025-09-10 16:00:26,307 - __main__ - ERROR - Portfolio explanation failed: 'EnhancedHistoricalAnalyzer' object has no attribute 'calculate_returns_and_metrics'
+2025-09-10 16:00:26,314 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\91938\PycharmProjects\portfolio_explanation\app.py", line 119, in generate_portfolio_explanation
+    historical_metrics = historical_analyzer.calculate_returns_and_metrics()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EnhancedHistoricalAnalyzer' object has no attribute 'calculate_returns_and_metrics'
+
+2025-09-10 16:00:26,315 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2025 16:00:26] "[35m[1mPOST /generate-portfolio-explanation HTTP/1.1[0m" 500 -
+2025-09-10 16:03:49,930 - werkzeug - INFO -  * Detected change in 'C:\\Users\\91938\\PycharmProjects\\portfolio_explanation\\app.py', reloading
+2025-09-10 16:03:50,177 - werkzeug - INFO -  * Restarting with stat
