@@ -706,3 +706,18 @@ AttributeError: 'EnhancedHistoricalAnalyzer' object has no attribute 'calculate_
 2025-09-10 16:00:26,315 - werkzeug - INFO - 127.0.0.1 - - [10/Sep/2025 16:00:26] "[35m[1mPOST /generate-portfolio-explanation HTTP/1.1[0m" 500 -
 2025-09-10 16:03:49,930 - werkzeug - INFO -  * Detected change in 'C:\\Users\\91938\\PycharmProjects\\portfolio_explanation\\app.py', reloading
 2025-09-10 16:03:50,177 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:05:26,471 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:07:03,060 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:07:24,662 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:08:38,998 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:13:59,793 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:14:33,779 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:22:28,109 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:25:36,652 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:26:05,764 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:39:44,403 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:55:14,787 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:55:57,959 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 16:56:25,938 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 17:00:54,736 - werkzeug - INFO -  * Restarting with stat
+2025-09-10 17:02:28,713 - werkzeug - INFO -  * Restarting with stat
