@@ -3,42 +3,40 @@ FROM python:3.11-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV FLASK_APP=app.py
-ENV FLASK_ENV=production
 
-# Install system dependencies
+# Install only essential system dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         gcc \
         g++ \
         curl \
-        redis-server \
-        supervisor \
-        && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
-# Set work directory
+# Set working directory
 WORKDIR /app
 
-# Copy requirements and install
+# Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# Create directories
-RUN mkdir -p /app/data /app/logs /var/log/supervisor
+# Create directories for file-based caching
+RUN mkdir -p /app/data /app/logs /app/data/cache
 
 # Copy application code
 COPY . .
 
-# Copy supervisor config
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Create non-root user
+# Create non-root user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 RUN chown -R appuser:appuser /app
+USER appuser
 
 # Expose port
 EXPOSE $PORT
 
-# Start with supervisor (manages Redis + Flask + Background tasks)
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:$PORT/ || exit 1
+
+# Start Flask directly with gunicorn
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 app:app"]
