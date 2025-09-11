@@ -384,14 +384,13 @@ def internal_error(error):
 
 
 if __name__ == '__main__':
-    # Get port from environment variable
-    port = int(os.environ.get('PORT', Config.PORT))
+    # Get port from environment variable (Railway sets this)
+    port = int(os.environ.get('PORT', 5001))
     debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
-
-    logger.info(f" Starting Portfolio Explainer API with Enhanced Live Data System")
+    
+    logger.info(f"🚀 Starting Portfolio Explainer API")
     logger.info(f"   Port: {port}")
     logger.info(f"   Debug: {debug}")
-    logger.info(f"   Cache System: File-based")
-    logger.info(f"   Data Priority: Cache → Live → CSV → Defaults")
-
+    logger.info(f"   Deployment: Simple Procfile")
+    
     app.run(host='0.0.0.0', port=port, debug=debug)
