@@ -489,6 +489,7 @@ class EnhancedHistoricalAnalyzer:
             'csv_file_available': self.csv_data_path.exists(),
             'csv_file_path': str(self.csv_data_path),
             'cache_available': self.cache_available,
+            'cache_type': 'file_based',
             'cache_directory': str(self.cache_dir),
             'priority_order': ['CSV file', 'File cache', 'Live yfinance', 'Complete defaults'],
             'assets': {}
@@ -508,6 +509,9 @@ class EnhancedHistoricalAnalyzer:
         for asset in assets:
             csv_available = False
             cache_available = False
+            cache_file_exists = False
+            is_fresh = False
+            last_update = None
 
             # Check CSV
             if self.csv_data_path.exists():
@@ -519,11 +523,23 @@ class EnhancedHistoricalAnalyzer:
 
             # Check cache
             cache_file = self.cache_dir / f"{asset}.json"
-            cache_available = cache_file.exists()
+            cache_file_exists = cache_file.exists()
+            cache_available = cache_file_exists
+            if cache_file_exists:
+                try:
+                    with open(cache_file, 'r') as f:
+                        cached_json = json.load(f)
+                    is_fresh = self._is_data_fresh(cached_json)
+                    last_update = cached_json.get('last_update')
+                except Exception:
+                    is_fresh = False
 
             status['assets'][asset] = {
                 'csv_available': csv_available,
                 'cache_available': cache_available,
+                'cache_file_exists': cache_file_exists,
+                'is_fresh': is_fresh,
+                'last_update': last_update,
                 'expected_priority': 'CSV' if csv_available else ('Cache' if cache_available else 'Live/Default')
             }
 
