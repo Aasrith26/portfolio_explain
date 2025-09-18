@@ -21,7 +21,7 @@ class PortfolioExplainer:
                                              historical_metrics, context_data, risk_profile):
         """Generate portfolio explanation using enhanced live data - SAME OUTPUT FORMAT"""
 
-        logger.info("🤖 Generating portfolio explanation with live market data (maintaining original format)")
+        logger.info("[INFO]Generating portfolio explanation with live market data (maintaining original format)")
 
         # Prepare enhanced prompt with live data
         prompt = self._create_enhanced_live_data_prompt(
@@ -48,7 +48,7 @@ class PortfolioExplainer:
 
             # Parse JSON response
             explanation_text = response.choices[0].message.content
-            logger.info(f"✅ LLM response received: {len(explanation_text)} characters")
+            logger.info(f"LLM response received: {len(explanation_text)} characters")
 
             explanation_json = json.loads(explanation_text)
 

@@ -20,7 +20,7 @@ class Config:
     PORT = int(os.getenv('PORT', 5001))
 
     # File paths
-    HISTORICAL_CSV_PATH = 'data/historical_data.csv'
+    HISTORICAL_CSV_PATH = 'data/historical_data_1.csv'
 
     # Asset mapping (match your portfolio system)
     ASSET_MAPPING = {
